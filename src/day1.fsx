@@ -1,4 +1,3 @@
-
 let testInput = [
     1721
     979
