@@ -352,11 +352,15 @@ let countTrees (map: string []) right down =
 
     loop map 0 0 0
 
-let pattern1=countTrees problemInput 1 1
-let pattern2=countTrees problemInput 3 1
-let pattern3=countTrees problemInput 5 1
-let pattern4=countTrees problemInput 7 1
-let pattern5=countTrees problemInput 1 2
+let pattern1 = countTrees problemInput 1 1
+let pattern2 = countTrees problemInput 3 1
+let pattern3 = countTrees problemInput 5 1
+let pattern4 = countTrees problemInput 7 1
+let pattern5 = countTrees problemInput 1 2
 
-let product = pattern1 * pattern2 * pattern3 * pattern4 * pattern5
-
+let product =
+    pattern1
+    * pattern2
+    * pattern3
+    * pattern4
+    * pattern5
