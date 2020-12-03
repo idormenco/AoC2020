@@ -341,20 +341,22 @@ let hasLandedOnATree (mapRow: string) column =
     | '#' -> true
     | _ -> false
 
-let countTrees (map: string []) right down=
+let countTrees (map: string []) right down =
     let rec loop (map: string []) row column numberOfTrees =
         match row with
         | _ when row < (map |> Seq.length) ->
             match hasLandedOnATree map.[row] column with
-            | true -> loop map ((+) row right) ((+) column down) ((+) numberOfTrees 1)
-            | false -> loop map ((+) row right) ((+) column down) numberOfTrees
+            | true -> loop map ((+) row down) ((+) column right) ((+) numberOfTrees 1)
+            | false -> loop map ((+) row down) ((+) column right) numberOfTrees
         | _ -> numberOfTrees
 
     loop map 0 0 0
 
-countTrees testInput 1 1
-countTrees testInput 3 1
-countTrees testInput 5 1
-countTrees testInput 7 1
-countTrees testInput 1 2
-countTrees problemInput
+let pattern1=countTrees problemInput 1 1
+let pattern2=countTrees problemInput 3 1
+let pattern3=countTrees problemInput 5 1
+let pattern4=countTrees problemInput 7 1
+let pattern5=countTrees problemInput 1 2
+
+let product = pattern1 * pattern2 * pattern3 * pattern4 * pattern5
+
