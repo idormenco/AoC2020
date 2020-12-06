@@ -841,4 +841,4 @@ let minSeatId = seats |> Seq.min
 let possibleSeats =
     [ 23 .. 828 ]
     |> Seq.filter (fun id -> not (seats |> Seq.contains id))
-    |> Seq.length
+    |> Seq.toArray
