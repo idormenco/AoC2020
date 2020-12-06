@@ -2067,16 +2067,16 @@ let folder (lst: string list list) x =
 
 
 
-// let result =
-//     List.fold folder [ [] ] (input.Split("\n") |> Seq.toList)
-//     |> List.map (List.reduce (+))
-//     |> List.map (Seq.toList)
-//     |> List.map (Seq.distinct)
-//     |> List.map (Seq.length)
-//     |> List.sum
+let result1 =
+    List.fold folder [ [] ] (input.Split("\n") |> Seq.toList)
+    |> List.map (List.reduce (+))
+    |> List.map (Seq.toList)
+    |> List.map (Seq.distinct)
+    |> List.map (Seq.length)
+    |> List.sum
 
-let result =
-    List.fold folder [ [] ] (testInput.Split("\n") |> Seq.toList)
+let result2 =
+    List.fold folder [ [] ] (input.Split("\n") |> Seq.toList)
     |> List.map (List.map (Seq.toList))
     |> List.map (List.map (Set.ofList ))
     |> List.map (List.reduce (Set.intersect))
