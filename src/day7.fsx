@@ -704,11 +704,16 @@ let shinyGoldBag = bagsRules |> getBag "shiny gold"
 
 let countContainingBags bagsRules (bag: Bag) =
 
-    let rec loop bagsRules (innerBags: Innerbag  list) count =
+    let rec loop bagsRules (innerBags: Innerbag list) count =
         match innerBags with
         | [] -> count
-        | h::t -> (h.Count + h.Count *loop bagsRules (bagsRules |> getBag h.Color).Content count) + (loop bagsRules t 0)
+        | h :: t ->
+            (h.Count
+             + h.Count
+             * loop bagsRules (bagsRules |> getBag h.Color).Content count)
+            + (loop bagsRules t 0)
 
     loop bagsRules bag.Content 0
 
-let resultQuestion2 = countContainingBags bagsRules shinyGoldBag
+let resultQuestion2 =
+    countContainingBags bagsRules shinyGoldBag
