@@ -2068,7 +2068,7 @@ let folder (lst: string list list) x =
 
 
 let result1 =
-    List.fold folder [ [] ] (input.Split("\n") |> Seq.toList)
+    List.fold folder [ [] ] (input.Split('\n') |> Seq.toList)
     |> List.map (List.reduce (+))
     |> List.map (Seq.toList)
     |> List.map (Seq.distinct)
@@ -2076,7 +2076,7 @@ let result1 =
     |> List.sum
 
 let result2 =
-    List.fold folder [ [] ] (input.Split("\n") |> Seq.toList)
+    List.fold folder [ [] ] (input.Split('\n') |> Seq.toList)
     |> List.map (List.map (Seq.toList))
     |> List.map (List.map (Set.ofList ))
     |> List.map (List.reduce (Set.intersect))
