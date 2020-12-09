@@ -1056,7 +1056,6 @@ let rec sumWhile seq sum acc =
     | h :: t when ((acc |> List.sum) + h) > sum -> None
     | h :: t -> sumWhile t sum (h :: acc)
 
-
 let getSequenceForSum seq sum =
     let rec loop seq sum =
         match seq with
